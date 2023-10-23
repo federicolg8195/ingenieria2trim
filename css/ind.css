@@ -1,0 +1,40 @@
+/* Estilos para el header */
+header {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+header button {
+  margin-right: 10px;
+}
+
+
+/* Estilos para las secciones */
+section {
+  padding: 20px;
+}
+
+/* Estilos para las tarjetas */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+#titulo {
+  
+  text-align: center;
+  font-size: 50px;
+}
