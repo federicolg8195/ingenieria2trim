@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="css/estilosServicios.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+</head>
+<body>
+    <h1 class="title">Servicios de apoyo</h1>
+   
+    <h4>Servicios</h4>
+    <div id="buttons">
+        
+        <button class="button-value" onclick="filterServicio('all')">Todo</button>
+        <button class="button-value"onclick="filterServicio('CentroDeApoyo')">Centro de Apoyo</button>
+        <button class="button-value" onclick="filterServicio('MovilDeApoyo')" >Movil de Apoyo</button>
+ 
+        
+    </div>
+     
+        <div id="map"></div>
+        <div id="Servicios"></div>
+        
+    
+    
+    <script src="js/Servicios.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/mapa.js"></script>
+    
+    
+</body>
+</html>
