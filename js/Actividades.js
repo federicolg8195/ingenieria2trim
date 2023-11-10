@@ -2,13 +2,13 @@ let publicaciones = {
     data:[
         {   
             Actividad:"Senderismo",
-            image:"img/translasierra.jpg",
+            image:"img/senderismo.jpg",
             descripcion: " En nuestro pintoresco destino turístico, el senderismo es una experiencia enriquecedora que te invita a explorar la belleza natural a pie. Descubre impresionantes paisajes mientras recorres rutas naturales y senderos escénicos. El senderismo te permite sumergirte en la naturaleza, experimentando la tranquilidad de cada paso. Únete a nosotros y embárcate en una emocionante aventura de senderismo para descubrir la maravilla de nuestro destino.",
 
         },
         {   
             Actividad:"Cabalgatas",
-            image:"img/sierra chica700x500.jpg",
+            image:"img/CABALGATA-1.jpg",
             descripcion: "La cabalgata es una experiencia inolvidable que te permite explorar la majestuosidad de la naturaleza a lomos de un noble corcel. Descubre paisajes impresionantes mientras sigues senderos naturales y rutas escénicas. La cabalgata es una actividad que te conecta con la esencia del entorno, ofreciéndote una experiencia única y relajante en la que puedes disfrutar de la belleza natural a tu propio ritmo. Únete a nosotros y descubre la magia de la cabalgata en nuestro destino.",
     
         },

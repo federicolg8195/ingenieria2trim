@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="css/estilosProductos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- <script src="js/Cotizacion.js"></script> -->
+</head>
+<body>
+    <h1 class="title">Productos</h1>
+    <div class="wrapper">
+        
+        <input
+            type="search"
+            id="search-input"
+            placeholder="Buscar Productos"> 
+        <button id="search">Buscar</button>
+    </div>
+    <h4>Tipo de Producto</h4>
+    <div id="buttons">
+        
+        <button class="button-value" onclick="filterProducto('all')">Todo</button>
+        <button class="button-value"onclick="filterProducto('Articulo')">Articulo</button>
+        <button class="button-value" onclick="filterProducto('Servicio')" >Servicio</button>
+     <h4>Categoria de Producto</h4>
+     <button class="button-value" onclick="filterProducto('all')">Todo</button>
+        <button class="button-value"onclick="filterProducto('Comestible')">Comestibles</button>
+        <button class="button-value"onclick="filterProducto('Farmacia')">Farmacia</button>
+        <button class="button-value"onclick="filterProducto('Ropa')">Ropa</button>
+        
+    </div>
+     
+        
+        <div id="Productos"></div>
+        
+    
+    
+    <script  src="js/Productos.js"></script>
+   
+    <script src="js/scriptP.js"></script>
+    
+    
+</body>
+</html>

@@ -22,6 +22,11 @@ for (let i of Comercios.data){
     direccion.innerText= "DIRECCION: "+i.direccion
     container.appendChild(direccion);
     
+     //Descripcion
+     let Descripcion = document.createElement("h4");
+     Descripcion.innerText= "Descripcion: "+i.Descripcion
+     container.appendChild(Descripcion);
+
     //horario
     let horario = document.createElement("h4");
     horario.innerText = "Horarios: "+ i.horario;

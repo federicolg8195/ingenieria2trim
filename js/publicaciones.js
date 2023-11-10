@@ -69,13 +69,18 @@ for (let i of publicaciones.data){
     // Boton de Actividades del lugar
   let actividadesButton = document.createElement("button");
   actividadesButton.innerText = "Actividades del lugar";
+  if (i.nombreSitio === "Translasierra") {
   actividadesButton.addEventListener("click", () => {
     // Agrega aquí el código para redirigir a la página de actividades del lugar
     // Por ejemplo, puedes usar window.location.href para cambiar la URL.
     // Ejemplo: window.location.href = "URL de la página de actividades";
+    window.location.href = "./Actividades.html";
+
+
+
   });
   
-
+  }
 
 
   container.appendChild(actividadesButton);
@@ -121,22 +126,7 @@ for (let i of publicaciones.data){
 //     });
 
 // }
-document.getElementById("search").addEventListener
-("click",() => {
-    let searchInput = document.getElementById("search-input").value;
-    let elements = document.querySelectorAll(".organizacion-name");
-    let cards = document.querySelectorAll(".card");
-    
-    elements.forEach((element,index)=> {
-        if (element.innerText.includes(searchInput.toUpperCase()))
-        {
-            cards[index].classList.remove("hide");
-        }
-        else{
-            cards[index].classList.add("hide");
-        }
-    })
-})
+
 // var map = L.map("map").setView([-34.5067, -58.7064], 14);
 // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //     maxZoom: 140,
