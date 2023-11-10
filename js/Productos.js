@@ -12,6 +12,7 @@ mostrar junto con el precio, la cotización diaria de moneda extranjera.*/
 let Productos = {
     data:[
         {   
+            id:"1",
             nombre:"Queso",
             categoria:"Comestible",
             tipo:"Articulo",
@@ -20,12 +21,13 @@ let Productos = {
             restricciones:"",
             caracteristicas:"se destaca por sus características distintivas, que incluyen su sabor robusto y salado, así como una textura firme y quebradiza. Este queso es envejecido durante un período prolongado, lo que le confiere su sabor intenso y notas terrosas, convirtiéndolo en una deliciosa adición a platos de pasta, ensaladas y aperitivos.",
             fechaDeCreacion:"10/09/2023",
-            precio:"150",
+            precio:"1500",
             
 
         },
     
         {   
+            id:"2",
             nombre:"Ibuprofeno",
             categoria:"Farmacia",
             tipo:"Articulo",
@@ -34,11 +36,12 @@ let Productos = {
             restricciones:"",
             caracteristicas:"Las cápsulas blandas de ibuprofeno ofrecen una forma fácil de ingerir el medicamento, con rápida absorción y dosificación precisa, lo que las hace ideales para aliviar el dolor de manera efectiva y conveniente en cualquier momento. ",
             fechaDeCreacion:"11/09/2023",
-            precio:"",
+            precio:"600",
             
 
         },
         {   
+            id:"3",
             nombre:"Sastreria",
             categoria:"Ropa",
             tipo:"Servicio",

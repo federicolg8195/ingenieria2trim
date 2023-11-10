@@ -1,24 +1,10 @@
 var apiUrl = "https://api.bluelytics.com.ar/v2/latest";
 
-fetch(apiUrl)
-  .then(response => {
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error(`Error al obtener datos. Código de estado: ${response.status}`);
-    }
-  })
-  .then(data => {
-    var oficialValueAvg = data.oficial.value_avg;
-    var blueValueAvg = data.blue.value_avg;
-    
-  })
-  .catch(error => {
-    console.error("Ocurrió un error:", error);
-  });
+
   
 for (let i of Productos.data){
     let card = document.createElement("div");
+    card.id = "tarjeta-" + i.id;
     card.classList.add("card",i.categoria,"hide",i.tipo);
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("image-container");
@@ -78,6 +64,34 @@ for (let i of Productos.data){
 
 }
 
+fetch(apiUrl)
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error(`Error al obtener datos. Código de estado: ${response.status}`);
+    }
+  })
+  .then(data => {
+    var oficialValueAvg = data.oficial.value_avg;
+    var blueValueAvg = data.blue.value_avg;
+    
+    for (let i of Productos.data) {
+      if(i.precio !==""){
+      let tarjeta = document.getElementById("tarjeta-" + i.id);
+      // Hacer algo con la tarjeta...
+      console.log(i.id);
+      // Modifica el valor de la cotización en cada tarjeta
+      let cotizacionElement = tarjeta.querySelector(".container h4:last-child");
+      let nuevaCotizacion = parseFloat(i.precio) / parseFloat(oficialValueAvg); 
+      cotizacionElement.innerText = "Cotizacion: " + nuevaCotizacion.toFixed(2) + " USD";
+  }
+}
+    
+  })
+  .catch(error => {
+    console.error("Ocurrió un error:", error);
+  });
 
 
 function filterProducto(value){  

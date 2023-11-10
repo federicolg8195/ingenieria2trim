@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publicar Aviso - Secretaría de Turismo </title>
+  
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/custom.css">
+  
+</head>
+<body>
+  <!-- Los comerciantes podrán publicar avisos, indicando el nombre y un detalle del 
+  producto ofrecido, algunas fotos, y su categoría dentro de las categorías disponibles. Si 
+  es un aviso sobre un servicio, se deben ingresar las restricciones del mismo. En el caso 
+  de un artículo para venta, se deben registrar sus características. 
+  Todos los avisos pueden contener opcionalmente un precio. Para asegurar que 
+  el precio ofrecido sea acorde, se requiere que se pueda comparar con productos 
+  similares de algún sistema de ventas externo. Al momento de ingresar un aviso, el 
+  sistema podrá mostrar al anunciante una lista de productos similares junto con su precio 
+  como sugerencia, de manera que pueda poner un precio -->
+
+<div class="todo">
+  <div class="container">
+    <div class="table-wrapper">
+    <div class="row">
+      <div class="col-sm-12">                    
+        <a href="PaginaPrincipal.html" class="btn btn-dark" style="float: right">Volver</a>
+    </div>
+      <!-- Barra de la izquierda -->
+      
+      <div class="col-lg-4">
+        <h1 class="titulo">Publicar Aviso</h1>
+      </div>
+      <!-- Fin barra de la izquierda-->
+
+      <!-- Info de la derecha -->
+      <div class="col-lg-8" >
+        <form>
+
+        <div class="row">
+
+          <div class="col-lg-12" >
+            <h3>Completá los datos del aviso</h3>
+          </div>
+
+        <div class="col-lg-12" >
+          <label>Nombre del Aviso *</label>
+          <input class="form-control" name="nombrearticulo" id="nombrearticulo" required>
+        </div>
+
+        <div class="col-lg-12" >
+          <label>Descripción del Aviso *</label>
+          <input class="form-control" name="descripcionarticulo" id="descripcionarticulo" required>
+        </div>
+
+        <div class="col-lg-12" ><br>
+          <h5>Tipo *</h5>
+<div class="form-check" id="cursos">
+  <input class="form-check-input" type="radio" name="tipo" value="articulo" id="cat1" required>
+  <label class="form-check-label" for="cat1">Articulo</label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="tipo" value="servicio" id="cat2">
+  <label class="form-check-label" for="cat2">Servicio</label>
+</div>
+          <br>
+          <h5>Categoría *</h5>
+          <div class="form-check" id="cursos" required>
+            <input class="form-check-input" type="checkbox" value="" id="cat1">
+            <label class="form-check-label" > Farmacia </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="cat2">
+            <label class="form-check-label" > Comestible </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="cat3">
+            <label class="form-check-label" > Ropa </label>
+          </div>
+          
+        </div>
+
+        
+        
+        <!--<div class="col-lg-12" > <br>
+          <h4>VENTA DIRECTA</h4>
+        </div>-->
+        <div class="col-lg-12" > <br>
+          <h4>Ingrese el nombre del producto para mostrarle sugerencias de precio</h4>
+        </div>
+
+        <div class="col-md-9">
+          <input type="text" class="form-control" name="nombrePrecio" id="nombrePrecio" placeholder="Ingrese el nombre del artículo" required> 
+          <small> Los resultados se obtienen de MercadoLibre-Argentina </small> 
+          <br>
+          <br>
+
+          <h3 id="precioSugeridoTitulo">Precio sugerido: </h3>
+           
+        
+        <br>
+        
+          <input type="text" class="form-control" name="nombrePrecio" id="nombrePrecio" placeholder="Precio" required> 
+          <small>El precio no es obligatorio </small> 
+        </div>   
+
+        <div class="col-md-3">
+          <input type="button"  class="btn btn-info btn-block" id="sugerencias" value="Sugerencias" onclick="obtenerSugerencias()"/>        
+        </div>
+        <table class="table  table-hover" id="contenido"></table> 
+
+      
+        
+
+        
+        
+        <div class="col-lg-12"><br>
+          <h5>Adjuntar Foto *</h5>
+          <input type="file" id="adjunto" name="adjunto" >
+      </div>
+        
+        <div class="col-lg-12" > <hr>
+          <a  class="btn btn-success btn-block enable" id="enviar" onclick="validar() ">Cargar Aviso</a>
+          <small>Los campos con un * son obligatorios</small>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <div id='footer' ></div>
+  <!-- fin footer -->
+  
+  <script src="js/Sugerencia.js"></script>
+
+  <script>
+    function obtenerSugerencias() {
+      const query = document.getElementById("nombrePrecio").value;
+      const apiUrl = `https://api.mercadolibre.com/sites/MLA/search?q=${query}`;
+  
+      // Realizar una solicitud GET a la API de MercadoLibre
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('La solicitud de API no tuvo éxito');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.results.length > 0) {
+            const primerProducto = data.results[0];
+            const nombre = primerProducto.title;
+            const precio = primerProducto.price;
+  
+            // Actualizar el DOM con el precio sugerido
+            const precioSugeridoTitulo = document.getElementById("precioSugeridoTitulo");
+            const precioSugerido = document.getElementById("precioSugerido");
+  
+            precioSugeridoTitulo.textContent = `Precio sugerido: $${precio} ${primerProducto.currency_id}`;
+            precioSugerido.value = precio;
+          } else {
+            console.log('No se encontraron productos.');
+          }
+        })
+        .catch(error => {
+          console.error('Error al obtener datos de la API:', error);
+        });
+    }
+  </script>
+  
+</body>
+
+</html>
